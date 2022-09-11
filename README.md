@@ -17,6 +17,7 @@ If you like to play around with this Repository you need to install:
 It's 8 PM in the evening and all my head was thinking about was a Pinata.
 
 Use the following tools to
+
 - keep your code-base clean by consisteny formatting
 - enforce best practices & guidelines by statically code analyzes
 - never ever think actively about the 2 points mentioned above
@@ -78,6 +79,7 @@ echo {}> .prettierrs.json
 ```
 
 Use basic configuration (or extend/update the configuration [using the available options](https://prettier.io/docs/en/options.html):
+
 ```json
 {
   "trailingComma": "es5",
@@ -90,6 +92,12 @@ Use basic configuration (or extend/update the configuration [using the available
 Next create a `.prettierignore`(https://prettier.io/docs/en/ignore.html) file to ignore certain files and folders completely from formatting.
 
 By default prettier ignores files in version control systems directories (".git", ".svn" and ".hg") and node_modules (if --with-node-modules CLI option not specified).
+
+You can test Prettier now by running:
+
+```shell
+npx prettier --write .
+```
 
 ### ESLint
 
@@ -108,8 +116,46 @@ This example Repository uses the 2nd option.
 The configuration can either be a JavaScript File, YAML or JSON. I choose JavaScript.
 For further configuration details checkout [Configuring ESLint](https://eslint.org/docs/latest/user-guide/configuring/).
 
+You can try out ESLint by running:
 
+```shell
+npx eslint .
+```
 
+Note: If you're using Prettier with ESLint together we need to make further adjustments.
 
+### Prettier X ESLint
 
+To get Prettier work well together with ESLint we need to install additional plugins:
 
+```shell
+npm install --save-dev eslint-config-prettier eslint-plugin-prettier
+```
+
+Next we need to adjust the `.eslintrc.js` (if you choosen YAML, or JSON, use the respective file and adjust it accordingly):
+
+```JavaScript
+// .eslintrc.js
+module.exports = {
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "plugins": ["prettier"], // new
+    "extends": [ // Extends is an array now
+        "eslint:recommended",
+        "plugin:prettier/recommended" // new
+    ],
+    "overrides": [
+    ],
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module"
+    },
+    "rules": {
+        "prettier/prettier": "error" // new
+    }
+}
+```
+
+Now both—ESlint & Prettier should work together hand in hand.

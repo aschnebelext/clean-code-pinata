@@ -16,6 +16,8 @@
   "homepage": "https://github.com/aschnebelext/clean-code-pinata#readme",
   "devDependencies": {
     "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "prettier": "2.7.1"
   }
 }
