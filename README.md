@@ -91,9 +91,22 @@ Next create a `.prettierignore`(https://prettier.io/docs/en/ignore.html) file to
 
 By default prettier ignores files in version control systems directories (".git", ".svn" and ".hg") and node_modules (if --with-node-modules CLI option not specified).
 
+### ESLint
 
+Install ESLint & configure locally.
 
+```shell
+npm init @eslint/config
+```
 
+A wizzard will guide your through the installation process.
+
+Note: Use "To check syntax, find problems, and enforce code style" only, when your code base is either fairly new or already consistent and clean.
+Otherwise you will probably face a ton or errors and need to fix them which could take a while.
+
+This example Repository uses the 2nd option.
+The configuration can either be a JavaScript File, YAML or JSON. I choose JavaScript.
+For further configuration details checkout [Configuring ESLint](https://eslint.org/docs/latest/user-guide/configuring/).
 
 
 
