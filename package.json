@@ -1,0 +1,20 @@
+{
+  "name": "clean-code-pinata",
+  "version": "1.0.0",
+  "description": "## This example Repository demonstrates how to use Prettier, ESLint, Husky &amp; Lint-Staged together to make code formatting a breeze experience.",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aschnebelext/clean-code-pinata.git"
+  },
+  "keywords": [],
+  "author": "Alexander Schnebel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aschnebelext/clean-code-pinata/issues"
+  },
+  "homepage": "https://github.com/aschnebelext/clean-code-pinata#readme",
+  "devDependencies": {
+    "prettier": "2.7.1"
+  }
+}

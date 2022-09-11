@@ -61,6 +61,35 @@ If there only would be one solution 🤔
 
 Use Lint-Staged together with husky to only lint/format what has been changed.
 
+## Install & Setup
+
+### Prettier
+
+First, install Prettier locally:
+
+```shell
+npm install --save-dev --save-exact prettier
+```
+
+Then create a config file:
+
+```shell
+echo {}> .prettierrs.json
+```
+
+Use basic configuration (or extend/update the configuration [using the available options](https://prettier.io/docs/en/options.html):
+```json
+{
+  "trailingComma": "es5",
+  "tabWidth": 4,
+  "semi": false,
+  "singleQuote": true
+}
+```
+
+Next create a `.prettierignore`(https://prettier.io/docs/en/ignore.html) file to ignore certain files and folders completely from formatting.
+
+By default prettier ignores files in version control systems directories (".git", ".svn" and ".hg") and node_modules (if --with-node-modules CLI option not specified).
 
 
 
