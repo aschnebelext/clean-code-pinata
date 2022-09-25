@@ -203,7 +203,7 @@ Next adjust your `package.json` file and append the following block:
 
 ```json
     "lint-staged": {
-        "**/*.{js}": [
+        "**/*.{js,json,html}": [
             "npx prettier --write",
             "npx eslint --fix"
         ]
