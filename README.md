@@ -225,3 +225,18 @@ npx lint-staged # new
 ```
 
 If you followed through you now have everything set up—Congratulations 🎉
+
+### Final adjustments
+
+I personaly like to have a npm skript available what does all the initial setup for me.
+
+```shell
+npm set-script setup "npm install && npm run prepare"
+```
+
+## Conclusion
+
+If you like to test and play around with my so-called clean-code-pinata fork this repository,
+run `npm run setup`, and create either some HTML files or some JavaScript files.
+
+Mess around inside those files, then create a commit and see what happens 👏.
