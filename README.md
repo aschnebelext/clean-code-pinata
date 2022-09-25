@@ -190,3 +190,38 @@ npx husky add .husky/pre-commit "npx prettier --write . && npx eslint ."
 The example above will create a pre-commit hook and husky will execute prettier and eslint whenever we commit something.
 
 Thats basically everything you need to work with husky.
+
+### Lint Staged
+
+Install Lint Staged
+
+```shell
+npm install --save-dev lint-staged
+```
+
+Next adjust your `package.json` file and append the following block:
+
+```json
+    "lint-staged": {
+        "**/*.{js}": [
+            "npx prettier --write",
+            "npx eslint --fix"
+        ]
+    },
+```
+
+The lint staged block must be placed on the root level of the `package.json` file.
+Define inside a [glob pattern](<https://en.wikipedia.org/wiki/Glob_(programming)>) for the files you like to run Lint Staged on.
+Finally define in the array which scripts you would like to run when Lint Stages is executed (in our case prettier and eslint).
+
+Finally change the pre-commit execution skript inside `<projectDir>/.husky/pre-commit` (or any other hook you've used)
+
+```shell
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx prettier --write . && npx eslint . # remove this line
+npx lint-staged # new
+```
+
+If you followed through you now have everything set up—Congratulations 🎉
