@@ -4,33 +4,33 @@
 
 This example Repository demonstrates how to use Prettier, ESLint, Husky &amp; Lint-Staged together to make code formatting a breeze experience.
 
-All tools/packages above work great together and make sure, that your Repository always stays clean and formatted, before you even commit something.
+All tools/packages above work great together, and make sure that your Repository always stays clean and formatted before you even commit something.
 
 ## Prerequisite
 
-If you like to play around with this Repository you need to install:
+If you like to play around with this Repository, you need to install:
 
 • Node Version 14.x or higher
 
 ## Why Pinata?
 
-It's 8 PM in the evening and all my head was thinking about was a Pinata.
+It was 8 PM in the evening, and all my head was thinking about was a Pinata.
 
 Use the following tools to
 
-- keep your code-base clean by consisteny formatting
-- enforce best practices & guidelines by statically code analyzes
+- keep your code-base clean by consistent formatting
+- enforce best practices & guidelines by statically code analyzing
 - never ever think actively about the 2 points mentioned above
 
 ### [Prettier](https://prettier.io/)
 
-Prettier is an opinionated code formatter which supports JavaScript, Typescript, and many Frameworks & Libraries.
+Prettier is an opinionated code formatter that supports JavaScript, Typescript, and many Frameworks & Libraries.
 
-Whenever you save your files, Prettier will make sure, that your code gets formatted.
+Whenever you save your files, Prettier will make sure that your code gets formatted.
 
 It's dead simple.
 
-But what if you not only want to format everything consistenly, but also enforce certain code guidelines?
+But what if you not only want to format everything consistenly but also enforce certain code guidelines?
 
 ### [ESLint](https://eslint.org/)
 
@@ -40,7 +40,7 @@ ESLint statically analyzes your code to find problems.
 - Fix problems automatically
 - Easily extendable and configurable
 
-Again, you can use it with almost every Language, Framework or Library.
+Again, you can use it with almost every Language, Framework, or Library.
 
 If we could only make sure that 💩 doesn't slip into the code Repository...
 
@@ -48,23 +48,23 @@ If we could only make sure that 💩 doesn't slip into the code Repository...
 
 Husky lets you easily install and configure [Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks).
 
-You can configure Husky for example to:
+You can configure Husky, for example, to:
 
 - Lint & format your code before you commit something
 - Run tests to make sure everything runs smoothly
 - What every comes to your mind
 
-One downside could potentially be, that formatting and linting could take a while, because every file gets linted and formatted.
+One downside could potentially be that formatting and linting could take a while because every file gets linted and formatted.
 
 If there only would be one solution 🤔
 
 ### [Lint-Staged](https://github.com/okonet/lint-staged)
 
-As I've mentioned above, husky would currently lint and reformat every single file in your repository.
-This is fine up to a certain point—when your codebase grows and you more and more files to lint, it could take a while.
+As I've mentioned above, husky would currently lint and reformat every single file in your Repository.
+This is fine up to a certain point—when your code base grows and you have more and more files to lint, it could take a while.
 Here comes Lint Staged to the rescue:
 
-With Lint Staged you will only lint and format all files, that are about to be commited.
+With Lint Staged, you will only lint and format all files that are about to be committed.
 
 ## Install & Setup
 
@@ -93,7 +93,7 @@ Use basic configuration (or extend/update the configuration [using the available
 }
 ```
 
-Next create a `.prettierignore`(https://prettier.io/docs/en/ignore.html) file to ignore certain files and folders completely from formatting.
+Next, create a `.prettierignore`(https://prettier.io/docs/en/ignore.html) file to ignore certain files and folders completely from formatting.
 
 By default prettier ignores files in version control systems directories (".git", ".svn" and ".hg") and node_modules (if --with-node-modules CLI option not specified).
 
@@ -111,10 +111,10 @@ Install ESLint & configure locally.
 npm init @eslint/config
 ```
 
-A wizzard will guide your through the installation process.
+A Wizzard will guide you through the installation process.
 
-Note: Use "To check syntax, find problems, and enforce code style" only, when your code base is either fairly new or already consistent and clean.
-Otherwise you will probably face a ton or errors and need to fix them which could take a while.
+Note: Use "To check syntax, find problems, and enforce code style" only when your code base is either fairly new or already consistent and clean.
+Otherwise, you will probably face a ton of errors and need to fix them, which could take a while.
 
 This example Repository uses the 2nd option.
 The configuration can either be a JavaScript File, YAML or JSON. I choose JavaScript.
@@ -126,17 +126,17 @@ You can try out ESLint by running:
 npx eslint .
 ```
 
-Note: If you're using Prettier with ESLint together we need to make further adjustments.
+Note: If you're using Prettier with ESLint together, we need to make further adjustments.
 
 ### Prettier X ESLint
 
-To get Prettier work well together with ESLint we need to install additional plugins:
+To get Prettier to work well together with ESLint, we need to install additional plugins:
 
 ```shell
 npm install --save-dev eslint-config-prettier eslint-plugin-prettier
 ```
 
-Next we need to adjust the `.eslintrc.js` (if you choosen YAML, or JSON, use the respective file and adjust it accordingly):
+Next, we need to adjust the `.eslintrc.js` (if you chose YAML, or JSON, use the respective file and adjust it accordingly):
 
 ```JavaScript
 // .eslintrc.js
@@ -166,13 +166,13 @@ Now both—ESlint & Prettier should work together hand in hand.
 
 ### Husky
 
-Now we're coming the the fun part:
+Now we're coming the fun part:
 
 ```shell
 npm install husky --save-dev
 ```
 
-Next create a prepare-script for the intial setup of Husky & run it:
+Next, create a prepare script for the initial setup of Husky & run it:
 
 ```shell
 npm set-script prepare "husky install"
@@ -181,15 +181,15 @@ npm run prepare
 
 This will create a local folder called `.husky` with the husky shell script inside.
 
-To add a commit hook use:
+To add a commit hook, use:
 
 ```shell
 npx husky add .husky/pre-commit "npx prettier --write . && npx eslint ."
 ```
 
-The example above will create a pre-commit hook and husky will execute prettier and eslint whenever we commit something.
+The example above will create a pre-commit hook, and husky will execute prettier and eslint whenever we commit something.
 
-Thats basically everything you need to work with husky.
+That's basically everything you need to work with Husky.
 
 ### Lint Staged
 
@@ -199,7 +199,7 @@ Install Lint Staged
 npm install --save-dev lint-staged
 ```
 
-Next adjust your `package.json` file and append the following block:
+Next, adjust your `package.json` file and append the following block:
 
 ```json
     "lint-staged": {
@@ -212,9 +212,9 @@ Next adjust your `package.json` file and append the following block:
 
 The lint staged block must be placed on the root level of the `package.json` file.
 Define inside a [glob pattern](<https://en.wikipedia.org/wiki/Glob_(programming)>) for the files you like to run Lint Staged on.
-Finally define in the array which scripts you would like to run when Lint Stages is executed (in our case prettier and eslint).
+Finally, define in the array which scripts you would like to run when Lint Stages is executed (in our case, prettier and eslint).
 
-Finally change the pre-commit execution skript inside `<projectDir>/.husky/pre-commit` (or any other hook you've used)
+Lastly, change the pre-commit execution script inside `<projectDir>/.husky/pre-commit` (or any other hook you've used)
 
 ```shell
 #!/usr/bin/env sh
@@ -224,11 +224,11 @@ npx prettier --write . && npx eslint . # remove this line
 npx lint-staged # new
 ```
 
-If you followed through you now have everything set up—Congratulations 🎉
+If you followed through, you now have everything set up—Congratulations 🎉
 
 ### Final adjustments
 
-I personaly like to have a npm skript available what does all the initial setup for me.
+I personally like to have an npm script available what does all the initial setup for me.
 
 ```shell
 npm set-script setup "npm install && npm run prepare"
@@ -236,7 +236,7 @@ npm set-script setup "npm install && npm run prepare"
 
 ## Conclusion
 
-If you like to test and play around with my so-called clean-code-pinata fork this repository,
+If you like to test and play around with my so-called clean-code-pinata fork in this Repository,
 run `npm run setup`, and create either some HTML files or some JavaScript files.
 
 Mess around inside those files, then create a commit and see what happens 👏.
