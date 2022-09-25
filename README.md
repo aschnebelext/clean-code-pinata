@@ -60,7 +60,11 @@ If there only would be one solution 🤔
 
 ### [Lint-Staged](https://github.com/okonet/lint-staged)
 
-Use Lint-Staged together with husky to only lint/format what has been changed.
+As I've mentioned above, husky would currently lint and reformat every single file in your repository.
+This is fine up to a certain point—when your codebase grows and you more and more files to lint, it could take a while.
+Here comes Lint Staged to the rescue:
+
+With Lint Staged you will only lint and format all files, that are about to be commited.
 
 ## Install & Setup
 
@@ -159,3 +163,30 @@ module.exports = {
 ```
 
 Now both—ESlint & Prettier should work together hand in hand.
+
+### Husky
+
+Now we're coming the the fun part:
+
+```shell
+npm install husky --save-dev
+```
+
+Next create a prepare-script for the intial setup of Husky & run it:
+
+```shell
+npm set-script prepare "husky install"
+npm run prepare
+```
+
+This will create a local folder called `.husky` with the husky shell script inside.
+
+To add a commit hook use:
+
+```shell
+npx husky add .husky/pre-commit "npx prettier --write . && npx eslint ."
+```
+
+The example above will create a pre-commit hook and husky will execute prettier and eslint whenever we commit something.
+
+Thats basically everything you need to work with husky.
